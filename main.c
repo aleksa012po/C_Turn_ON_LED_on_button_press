@@ -13,15 +13,13 @@
 #include <avr/interrupt.h>
 #include "init_ports_mcu.h"
 
-
 #define DEBOUNCE_TIME 200 // time to wait while "de-bouncing" button 
-
 
 int main(void)
 {
 init_ports_mcu();
   
-  while(1)					//infinite loop
+  while(1)					
   {
 	  //
   } 
@@ -29,6 +27,6 @@ init_ports_mcu();
 
 ISR(INT0_vect) 
 {
-	PORTB ^= (1 << PORTB1);	
+	PORTB ^= (1 << PORTB1);			// Toggle
 	_delay_ms(DEBOUNCE_TIME);
 }
